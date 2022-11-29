@@ -280,10 +280,19 @@
         <item>Zimbabue</item>
     </string-array>
 
-
+    <string name="extra">Seleccione estas opciones para mas contenido</string>
     <string name="nortificacion">Nortificacion</string>
     <string name="mapa">Ubicacion</string>
+    <string name="Datos_Usuario">Datos del usuario</string>
+    <string name="Admin_Usuario">Adminsitrar_Usuario</string>
     <string name="cerrar_session">Cerrar session</string>
+
+    <string name="TextView">TextView</string>
+    <string name="Datos_text">Informacion del usuario</string>
+    <string name="Adminsitar">Elija estas opciones que desea realizar</string>
+    <string name="admin">Admin</string>
+    <string name="editar">Editar</string>
+    <string name="eliminar">Eliminar</string>
 
     <string name="texto_nortificacion">Selecciona la imagen para enviar la nortificación de bienvenida</string>
 

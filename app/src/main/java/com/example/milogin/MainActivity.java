@@ -78,15 +78,16 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void guardarSesion(String usuario, String correo, String fecha, String pais, String nivel) {
+    private void guardarSesion(String usuario, String correo,String contraseña, String fecha, String pais, String nivel) {
         editor.putBoolean("sesion", true);
         editor.putString("usuario", usuario);
         editor.putString("correo", correo);
+        editor.putString("contraseña", contraseña);
         editor.putString("fecha", fecha);
         editor.putString("pais", pais);
         editor.putString("nivel", nivel);
 
-        editor.apply();
+        editor.commit();
     }
 
 
@@ -113,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                         //shared
-                        guardarSesion(usuario, correo, fecha, pais, nivel);
+                        guardarSesion(usuario, correo, contraseña, fecha, pais, nivel);
                         startActivity(new Intent(MainActivity.this, Login.class));
 
                     } else {
