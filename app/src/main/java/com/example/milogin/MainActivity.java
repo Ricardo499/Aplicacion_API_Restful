@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView Registro;
     Button Loginbtn;
     EditText Correo, Contraseña;
-    CheckBox Recordar;
+    private CheckBox Recordar;
 
     //shared
     SharedPreferences preferences;
@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 if (!correo.isEmpty()) {
                     if (!contraseña.isEmpty()) {
                         login(correo, contraseña);
+
                     } else {
                         Toast toast = Toast.makeText(MainActivity.this, "Ingrese una contraseña", Toast.LENGTH_SHORT);
                         toast.show();
@@ -78,7 +79,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void guardarSesion(String usuario, String correo, String fecha, String pais, String nivel) {
+        editor.putBoolean("sesion", true);
+        editor.putString("usuario", usuario);
+        editor.putString("correo", correo);
+        editor.putString("fecha", fecha);
+        editor.putString("pais", pais);
+        editor.putString("nivel", nivel);
 
+        editor.apply();
     }
 
 
@@ -105,20 +113,8 @@ public class MainActivity extends AppCompatActivity {
 
 
                         //shared
-                            //guardarSesion(usuario, correo, fecha, pais, nivel);
-                        if(Recordar.isChecked()){
-                            editor.putBoolean("sesion", true);
-                        }else {
-                            editor.putBoolean("sesion", false);
-                        }
-                        editor.putString("usuario", usuario);
-                        editor.putString("correo", correo);
-                        editor.putString("fecha", fecha);
-                        editor.putString("pais", pais);
-                        editor.putString("nivel", nivel);
-
-                        editor.apply();
-                            startActivity(new Intent(MainActivity.this, Login.class));
+                        guardarSesion(usuario, correo, fecha, pais, nivel);
+                        startActivity(new Intent(MainActivity.this, Login.class));
 
                     } else {
                         String mensaje = jsonObject.getString("mensaje");

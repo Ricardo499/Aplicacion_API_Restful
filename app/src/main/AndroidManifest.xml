@@ -9,11 +9,15 @@
 
     <application
         android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_robot"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_robot_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Milogin3">
+        android:theme="@style/Theme.Milogin3"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAEtDC47R4wB2rDBkiYp3Q_sUqg79uE3AI"/>
