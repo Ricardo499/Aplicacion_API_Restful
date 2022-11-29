@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     Button Loginbtn;
     EditText Correo, Contraseña;
     private CheckBox Recordar;
-
+    private boolean RadioButtonActivate;
     //shared
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
@@ -50,6 +51,16 @@ public class MainActivity extends AppCompatActivity {
         //shared
         preferences = getSharedPreferences("sesiones", Context.MODE_PRIVATE);
         editor = preferences.edit();
+        RadioButtonActivate = Recordar.isChecked();
+        Recordar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (RadioButtonActivate){
+                    Recordar.setChecked(false);
+                }
+                RadioButtonActivate = Recordar.isChecked();
+            }
+        });
 
         Registro.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -87,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("pais", pais);
         editor.putString("nivel", nivel);
 
-        editor.commit();
+        editor.apply();
     }
 
 
